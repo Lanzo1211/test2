@@ -1,315 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Sweet Surprise For You ✈️🌸</title>
-  <style>
-    :root {
-      --bg: #fff0f3;
-      --card-bg: rgba(255, 255, 255, 0.92);
-      --primary: #d63384;
-      --primary-dark: #a61e4d;
-      --secondary: #ff758f;
-      --accent: #ffd166;
-      --text: #343a40;
-      --text-muted: #6c757d;
-      --shadow: 0 15px 35px rgba(214, 51, 132, 0.15);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ffeef2 0%, #ffcad4 50%, #f4acb7 100%);
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem 1rem;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-   
-    .bg-bloom {
-      position: fixed;
-      font-size: 2.2rem;
-      pointer-events: none;
-      opacity: 0.25;
-      animation: drift 10s ease-in-out infinite alternate;
-      z-index: 0;
-    }
-
-    @keyframes drift {
-      from { transform: translateY(0) rotate(0deg); }
-      to { transform: translateY(-40px) rotate(25deg); }
-    }
-
-    .container {
-      width: 100%;
-      max-width: 520px;
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Surprise Gift Box Screen */
-    .gift-stage {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-
-    .gift-box {
-      font-size: 5rem;
-      cursor: pointer;
-      display: inline-block;
-      margin: 1.5rem 0;
-      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      animation: gentleBounce 2s infinite ease-in-out;
-      user-select: none;
-    }
-
-    .gift-box:hover {
-      transform: scale(1.15) rotate(4deg);
-    }
-
-    @keyframes gentleBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Revealed Surprise Stage */
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border-radius: var(--radius);
-      padding: 2.5rem 2rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      text-align: center;
-      display: none;
-      animation: popIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes popIn {
-      0% { opacity: 0; transform: scale(0.85) translateY(20px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .plane-icon {
-      font-size: 3rem;
-      display: inline-block;
-      animation: flyTilt 3s ease-in-out infinite alternate;
-      margin-bottom: 0.5rem;
-    }
-
-    @keyframes flyTilt {
-      0% { transform: translate(-5px, 0) rotate(-5deg); }
-      100% { transform: translate(5px, -8px) rotate(5deg); }
-    }
-
-    h1 {
-      font-size: 2rem;
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-      font-weight: 800;
-    }
-
-    .flight-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(214, 51, 132, 0.1);
-      color: var(--primary);
-      padding: 0.35rem 1rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 1.5rem;
-    }
-
-    
-    .bouquet-display {
-      margin: 1.5rem 0;
-      padding: 1.5rem;
-      background: linear-gradient(180deg, rgba(255, 240, 243, 0.6) 0%, rgba(255, 255, 255, 0.9) 100%);
-      border-radius: 18px;
-      border: 1px dashed var(--secondary);
-    }
-
-    .flower-row {
-      font-size: 3.5rem;
-      letter-spacing: 6px;
-      animation: bloomPulse 2.5s infinite ease-in-out;
-    }
-
-    @keyframes bloomPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-    }
-
-    /* Message Typography */
-    .letter {
-      line-height: 1.7;
-      font-size: 1.05rem;
-      color: #495057;
-      margin: 1.25rem 0 1.5rem;
-      padding: 0 0.5rem;
-    }
-
-    .letter strong {
-      color: var(--primary-dark);
-    }
-
-    /* Action Buttons */
-    .btn {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      border: none;
-      padding: 0.85rem 1.75rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(214, 51, 132, 0.45);
-    }
-
-    .btn:active {
-      transform: scale(0.97);
-    }
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusID | User Registration Portal</title>
   
-    .petal {
-      position: fixed;
-      bottom: -40px;
-      font-size: 1.8rem;
-      pointer-events: none;
-      animation: floatUp 4s ease-out forwards;
-      z-index: 100;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(0deg) scale(0.6);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-115vh) rotate(360deg) scale(1.3);
-        opacity: 0;
-      }
-    }
-  </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-indigo-100 selection:text-indigo-800">
 
-  <div class="bg-bloom" style="top: 10%; left: 8%;">🌸</div>
-  <div class="bg-bloom" style="top: 75%; left: 12%;">🌷</div>
-  <div class="bg-bloom" style="top: 15%; right: 10%;">🌹</div>
-  <div class="bg-bloom" style="top: 80%; right: 8%;">💐</div>
+    <!-- Top Navigation Bar -->
+    <header class="w-full bg-white/80 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-sm shadow-indigo-200">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
+                    </svg>
+                </div>
+                <span class="font-bold text-lg tracking-tight text-slate-900">Nexus<span class="text-indigo-600">ID</span></span>
+            </div>
 
-  <div class="container">
+            <!-- Directory Toggle Button -->
+            <button id="toggleUsersBtn" type="button" class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200/80 active:scale-[0.98] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/40">
+                <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                <span id="toggleUsersLabel">Registered Users</span>
+                <span id="userCountBadge" class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-700">0</span>
+            </button>
+        </div>
+    </header>
 
-    <div class="gift-stage" id="giftScreen">
-      <div class="flight-tag">SPECIAL DELIVERY FOR YOU</div>
-      <h2 style="font-size: 1.8rem; color: var(--primary-dark);">You have a Secret surprise!</h2>
-      <p style="color: var(--text-muted); margin-top: 0.5rem;">Tap the gift box to unwrap it</p>
+    <!-- Main Content Container -->
+    <main class="flex-grow flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+        <div class="w-full max-w-lg">
 
-      <div class="gift-box" onclick="openSurprise()">🎁</div>
+            <!-- VIEW 1: Registration Form Card -->
+            <section id="registrationSection" class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 sm:p-10 transition-all duration-300">
+                <div class="mb-8 text-center sm:text-left">
+                    <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">Create an account</h1>
+                    <p class="mt-2 text-sm text-slate-500">Enter your details below to set up your secure workspace profile.</p>
+                </div>
 
-      <div>
-        <button class="btn" onclick="openSurprise()">Open Present ✨</button>
-      </div>
+                <form id="registrationForm" novalidate class="space-y-5">
+                    
+                    <!-- Full Name Field -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
+                        <div class="relative">
+                            <input type="text" id="fullName" name="fullName" placeholder="e.g. Elena Rostova" autocomplete="name"
+                                class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150 pr-10">
+                            <!-- Status Icon -->
+                            <div id="fullNameStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
+                        </div>
+                        <p id="fullNameError" class="hidden mt-1.5 text-xs font-medium text-rose-600 flex items-center gap-1"></p>
+                    </div>
+
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-slate-700 mb-1.5">Username</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm select-none">@</span>
+                            <input type="text" id="username" name="username" placeholder="elena_dev" autocomplete="username"
+                                class="w-full pl-8 pr-10 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150">
+                            <!-- Status Icon -->
+                            <div id="usernameStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
+                        </div>
+                        <p id="usernameError" class="hidden mt-1.5 text-xs font-medium text-rose-600 flex items-center gap-1"></p>
+                    </div>
+
+                    <!-- Email Address Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-700 mb-1.5">Email Address</label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" placeholder="elena@example.com" autocomplete="email"
+                                class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150 pr-10">
+                            <!-- Status Icon -->
+                            <div id="emailStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
+                        </div>
+                        <p id="emailError" class="hidden mt-1.5 text-xs font-medium text-rose-600 flex items-center gap-1"></p>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+                            <span id="strengthLabel" class="text-xs font-semibold text-slate-400 transition-colors duration-200">Not entered</span>
+                        </div>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" placeholder="Create a strong password" autocomplete="new-password"
+                                class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150 pr-11">
+                            <!-- Show/Hide Eye Toggle Button -->
+                            <button type="button" id="togglePasswordBtn" aria-label="Toggle password visibility"
+                                class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none">
+                                <!-- Eye Open Icon -->
+                                <svg id="eyeOpenIcon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <!-- Eye Closed Icon -->
+                                <svg id="eyeClosedIcon" class="hidden w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Strength Meter Bar -->
+                        <div class="mt-2.5 w-full h-1.5 bg-slate-100 rounded-full overflow-hidden flex gap-1">
+                            <div id="strengthBar1" class="h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300"></div>
+                            <div id="strengthBar2" class="h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300"></div>
+                            <div id="strengthBar3" class="h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300"></div>
+                        </div>
+
+                        <!-- Password Requirement Checklist -->
+                        <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-500">
+                            <li id="reqLength" class="flex items-center space-x-1.5 transition-colors duration-200">
+                                <span class="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">•</span>
+                                <span>At least 8 characters</span>
+                            </li>
+                            <li id="reqUpper" class="flex items-center space-x-1.5 transition-colors duration-200">
+                                <span class="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">•</span>
+                                <span>One uppercase letter</span>
+                            </li>
+                            <li id="reqNumber" class="flex items-center space-x-1.5 transition-colors duration-200">
+                                <span class="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">•</span>
+                                <span>One number (0-9)</span>
+                            </li>
+                            <li id="reqSpecial" class="flex items-center space-x-1.5 transition-colors duration-200">
+                                <span class="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">•</span>
+                                <span>One special character</span>
+                            </li>
+                        </ul>
+                        <p id="passwordError" class="hidden mt-1.5 text-xs font-medium text-rose-600"></p>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-slate-700 mb-1.5">Confirm Password</label>
+                        <div class="relative">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password"
+                                class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150 pr-10">
+                            <!-- Status Icon -->
+                            <div id="confirmPasswordStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
+                        </div>
+                        <p id="confirmPasswordError" class="hidden mt-1.5 text-xs font-medium text-rose-600"></p>
+                    </div>
+
+                    <!-- Terms & Conditions Checkbox -->
+                    <div class="pt-1">
+                        <label class="flex items-start space-x-3 cursor-pointer select-none group">
+                            <input type="checkbox" id="termsCheckbox" name="terms"
+                                class="mt-0.5 w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/30 transition duration-150 cursor-pointer">
+                            <span class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                I agree to the <button type="button" id="openTermsBtn" class="font-medium text-indigo-600 hover:text-indigo-500 underline decoration-indigo-200 underline-offset-2">Terms of Service</button> and <button type="button" id="openPrivacyBtn" class="font-medium text-indigo-600 hover:text-indigo-500 underline decoration-indigo-200 underline-offset-2">Privacy Policy</button>.
+                            </span>
+                        </label>
+                        <p id="termsError" class="hidden mt-1.5 text-xs font-medium text-rose-600"></p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-2">
+                        <button type="submit" id="submitBtn"
+                            class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold text-sm shadow-md shadow-indigo-600/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all duration-150 flex items-center justify-center space-x-2">
+                            <span id="submitBtnText">Create Account</span>
+                            <!-- Loading Spinner (Hidden by default) -->
+                            <svg id="submitSpinner" class="hidden animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- VIEW 2: Success Confirmation Card (Hidden initially) -->
+            <section id="successSection" class="hidden bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 sm:p-10 text-center transition-all duration-300">
+                <!-- Animated Checkmark Badge -->
+                <div class="mx-auto w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center mb-6 shadow-sm">
+                    <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+
+                <h2 class="text-2xl font-bold text-slate-900">Registration Successful!</h2>
+                <p class="mt-2 text-sm text-slate-500 max-w-sm mx-auto">Your NexusID account has been provisioned and stored locally in your browser directory.</p>
+
+                <!-- Registered Details Summary Box -->
+                <div class="mt-7 bg-slate-50 rounded-2xl border border-slate-200/80 p-5 text-left space-y-3.5">
+                    <div class="flex justify-between items-center border-b border-slate-200/70 pb-2.5">
+                        <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Full Name</span>
+                        <span id="summaryFullName" class="text-sm font-semibold text-slate-800"></span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-200/70 pb-2.5">
+                        <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Username</span>
+                        <span id="summaryUsername" class="text-sm font-semibold text-indigo-600"></span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-200/70 pb-2.5">
+                        <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Email Address</span>
+                        <span id="summaryEmail" class="text-sm font-medium text-slate-800 break-all"></span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-slate-200/70 pb-2.5">
+                        <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Password</span>
+                        <span id="summaryPassword" class="text-sm font-mono text-slate-600 tracking-widest">••••••••</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Registered At</span>
+                        <span id="summaryDate" class="text-xs font-medium text-slate-500"></span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                    <button type="button" id="registerAnotherBtn"
+                        class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-sm transition-all duration-150">
+                        Register Another Account
+                    </button>
+                    <button type="button" id="viewDirectoryFromSuccessBtn"
+                        class="w-full py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition-all duration-150">
+                        View All Users
+                    </button>
+                </div>
+            </section>
+
+            <!-- VIEW 3: Registered Users Directory (Hidden initially) -->
+            <section id="directorySection" class="hidden bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 sm:p-8 transition-all duration-300">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-200/80">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">Registered Users</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">Simulated database stored in browser <code class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700">localStorage</code></p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" id="clearUsersBtn"
+                            class="px-3 py-1.5 rounded-lg text-xs font-medium text-rose-600 bg-rose-50 hover:bg-rose-100 transition-colors">
+                            Clear All
+                        </button>
+                        <button type="button" id="backToFormBtn"
+                            class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">
+                            + New Registration
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Users List Container -->
+                <div id="usersListContainer" class="mt-5 space-y-3 max-h-96 overflow-y-auto pr-1">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Custom Non-Blocking Policy/Notification Modal -->
+    <div id="infoModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+            <div class="flex items-center justify-between mb-3">
+                <h3 id="modalTitle" class="text-lg font-bold text-slate-900">Terms & Privacy</h3>
+                <button type="button" id="closeModalBtn" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <p id="modalBody" class="text-sm text-slate-600 leading-relaxed"></p>
+            <div class="mt-6 flex justify-end">
+                <button type="button" id="modalConfirmBtn" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition-colors">
+                    Got it
+                </button>
+            </div>
+        </div>
     </div>
 
-  
-    <div class="card" id="cardScreen">
-      <div class="plane-icon">✈️</div>
-      <div class="flight-tag">SAFE TRAVELS &amp; BLUE SKIES</div>
-      <h1>Have a Sweet Flight!</h1>
+    <!-- Footer -->
+    <footer class="py-6 text-center text-xs text-slate-400">
+        <p>NexusID Registration Demo &bull; Client-Side Validation &amp; LocalStorage Persistence</p>
+    </footer>
 
-      <div class="bouquet-display">
-        <div class="flower-row">💐🌹🌸</div>
-        <p style="margin-top: 0.75rem; font-size: 0.9rem; font-weight: 600; color: var(--primary);">
-          A bouquet of fresh blooms for your journey
-        </p>
-      </div>
+    <!-- Application Logic -->
+    <script>
+        /**
+         * NexusID Registration Application
+         * Handles real-time validation, password strength analysis, UI state transitions,
+         * and localStorage persistence.
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Elements ---
+            const form = document.getElementById('registrationForm');
+            const fullNameInput = document.getElementById('fullName');
+            const usernameInput = document.getElementById('username');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const termsCheckbox = document.getElementById('termsCheckbox');
 
-      <div class="letter">
-        <p>
-          Sending you the warmest hug, smoothest winds, and a garden of blossoms before you take off. 
-          Sit back, put your feet up, and <strong>have the sweetest, most relaxing flight</strong>.
-        </p>
-        <p style="margin-top: 0.75rem; font-weight: 500;">
-          Can't wait to hear all about it when you land safely! 💖
-        </p>
-      </div>
+            // Error & Status Elements
+            const errors = {
+                fullName: document.getElementById('fullNameError'),
+                username: document.getElementById('usernameError'),
+                email: document.getElementById('emailError'),
+                password: document.getElementById('passwordError'),
+                confirmPassword: document.getElementById('confirmPasswordError'),
+                terms: document.getElementById('termsError')
+            };
 
-      <button class="btn" onclick="sendBloomRain()">Shower With Blooms 🌸</button>
-    </div>
-  </div>
+            const statusIcons = {
+                fullName: document.getElementById('fullNameStatusIcon'),
+                username: document.getElementById('usernameStatusIcon'),
+                email: document.getElementById('emailStatusIcon'),
+                confirmPassword: document.getElementById('confirmPasswordStatusIcon')
+            };
 
-  <script>
-    const floralIcons = ["🌸", "🌹", "🌷", "💐", "✨", "🌺", "✈️", "💖"];
+            // Password Strength Elements
+            const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+            const eyeOpenIcon = document.getElementById('eyeOpenIcon');
+            const eyeClosedIcon = document.getElementById('eyeClosedIcon');
+            const strengthLabel = document.getElementById('strengthLabel');
+            const strengthBars = [
+                document.getElementById('strengthBar1'),
+                document.getElementById('strengthBar2'),
+                document.getElementById('strengthBar3')
+            ];
+            const reqElements = {
+                length: document.getElementById('reqLength'),
+                upper: document.getElementById('reqUpper'),
+                number: document.getElementById('reqNumber'),
+                special: document.getElementById('reqSpecial')
+            };
 
-    function openSurprise() {
-      // Trigger burst
-      for (let i = 0; i < 20; i++) {
-        setTimeout(spawnPetal, i * 70);
-      }
+            // Buttons & Sections
+            const submitBtn = document.getElementById('submitBtn');
+            const submitBtnText = document.getElementById('submitBtnText');
+            const submitSpinner = document.getElementById('submitSpinner');
 
-      const giftScreen = document.getElementById("giftScreen");
-      const cardScreen = document.getElementById("cardScreen");
+            const registrationSection = document.getElementById('registrationSection');
+            const successSection = document.getElementById('successSection');
+            const directorySection = document.getElementById('directorySection');
 
-      giftScreen.style.transform = "scale(0.85)";
-      giftScreen.style.opacity = "0";
+            const registerAnotherBtn = document.getElementById('registerAnotherBtn');
+            const viewDirectoryFromSuccessBtn = document.getElementById('viewDirectoryFromSuccessBtn');
+            const toggleUsersBtn = document.getElementById('toggleUsersBtn');
+            const toggleUsersLabel = document.getElementById('toggleUsersLabel');
+            const userCountBadge = document.getElementById('userCountBadge');
+            const usersListContainer = document.getElementById('usersListContainer');
+            const clearUsersBtn = document.getElementById('clearUsersBtn');
+            const backToFormBtn = document.getElementById('backToFormBtn');
 
-      setTimeout(() => {
-        giftScreen.style.display = "none";
-        cardScreen.style.display = "block";
-      }, 350);
-    }
+            // Modal Elements
+            const infoModal = document.getElementById('infoModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalConfirmBtn = document.getElementById('modalConfirmBtn');
+            const openTermsBtn = document.getElementById('openTermsBtn');
+            const openPrivacyBtn = document.getElementById('openPrivacyBtn');
 
-    function sendBloomRain() {
-      for (let i = 0; i < 12; i++) {
-        setTimeout(spawnPetal, i * 90);
-      }
-    }
+            // Storage Key
+            const STORAGE_KEY = 'nexusid_registered_users';
 
-    function spawnPetal() {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.innerText = floralIcons[Math.floor(Math.random() * floralIcons.length)];
-      petal.style.left = Math.random() * 88 + 6 + "vw";
-      petal.style.fontSize = Math.random() * 1.2 + 1.2 + "rem";
-      petal.style.animationDuration = Math.random() * 1.5 + 2.5 + "s";
-      document.body.appendChild(petal);
+            // SVG Icons for Valid/Invalid Input States
+            const validSvg = `<svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
+            const invalidSvg = `<svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
 
-      setTimeout(() => {
-        petal.remove();
-      }, 4000);
-    }
-  </script>
+            // --- LocalStorage Helpers ---
+            function getStoredUsers() {
+                try {
+                    const data = localStorage.getItem(STORAGE_KEY);
+                    return data ? JSON.parse(data) : [];
+                } catch (e) {
+                    console.error('Error reading from localStorage:', e);
+                    return [];
+                }
+            }
+
+            function saveUserToStorage(userObj) {
+                try {
+                    const users = getStoredUsers();
+                    users.unshift(userObj); // Add newest first
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+                    updateUserCountBadge();
+                } catch (e) {
+                    console.error('Error saving to localStorage:', e);
+                }
+            }
+
+            function updateUserCountBadge() {
+                const count = getStoredUsers().length;
+                userCountBadge.textContent = count;
+            }
+
+            // --- UI State Helper for Input Fields ---
+            function setFieldState(inputEl, errorEl, iconEl, isValid, errorMessage = '') {
+                // Reset border classes
+                inputEl.classList.remove(
+                    'border-slate-300', 'focus:border-indigo-500', 'focus:ring-indigo-500/20',
+                    'border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500/20',
+                    'border-emerald-500', 'focus:border-emerald-500', 'focus:ring-emerald-500/20'
+                );
+
+                if (isValid) {
+                    inputEl.classList.add('border-emerald-500', 'focus:border-emerald-500', 'focus:ring-emerald-500/20');
+                    if (errorEl) {
+                        errorEl.textContent = '';
+                        errorEl.classList.add('hidden');
+                    }
+                    if (iconEl) {
+                        iconEl.innerHTML = validSvg;
+                        iconEl.classList.remove('hidden');
+                    }
+                } else {
+                    inputEl.classList.add('border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500/20');
+                    if (errorEl) {
+                        errorEl.textContent = errorMessage;
+                        errorEl.classList.remove('hidden');
+                    }
+                    if (iconEl) {
+                        iconEl.innerHTML = invalidSvg;
+                        iconEl.classList.remove('hidden');
+                    }
+                }
+            }
+
+            function resetFieldState(inputEl, errorEl, iconEl) {
+                inputEl.classList.remove(
+                    'border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500/20',
+                    'border-emerald-500', 'focus:border-emerald-500', 'focus:ring-emerald-500/20'
+                );
+                inputEl.classList.add('border-slate-300', 'focus:border-indigo-500', 'focus:ring-indigo-500/20');
+                if (errorEl) {
+                    errorEl.textContent = '';
+                    errorEl.classList.add('hidden');
+                }
+                if (iconEl) {
+                    iconEl.classList.add('hidden');
+                }
+            }
+
+            // --- Individual Field Validators ---
+            function validateFullName() {
+                const val = fullNameInput.value.trim();
+                if (val.length === 0) {
+                    setFieldState(fullNameInput, errors.fullName, statusIcons.fullName, false, 'Full name is required.');
+                    return false;
+                }
+                if (val.length < 3) {
+                    setFieldState(fullNameInput, errors.fullName, statusIcons.fullName, false, 'Full name must be at least 3 characters.');
+                    return false;
+                }
+                if (!/^[a-zA-Z\s'-]+$/.test(val)) {
+                    setFieldState(fullNameInput, errors.fullName, statusIcons.fullName, false, 'Please enter a valid name (letters and spaces only).');
+                    return false;
+                }
+                setFieldState(fullNameInput, errors.fullName, statusIcons.fullName, true);
+                return true;
+            }
+
+            function validateUsername() {
+                const val = usernameInput.value.trim();
+                if (val.length === 0) {
+                    setFieldState(usernameInput, errors.username, statusIcons.username, false, 'Username is required.');
+                    return false;
+                }
+                if (val.length < 4 || val.length > 20) {
+                    setFieldState(usernameInput, errors.username, statusIcons.username, false, 'Username must be between 4 and 20 characters.');
+                    return false;
+                }
+                if (!/^[a-zA-Z0-9_]+$/.test(val)) {
+                    setFieldState(usernameInput, errors.username, statusIcons.username, false, 'Only letters, numbers, and underscores allowed.');
+                    return false;
+                }
+                // Check if username already exists in localStorage
+                const existingUsers = getStoredUsers();
+                const isTaken = existingUsers.some(u => u.username.toLowerCase() === val.toLowerCase());
+                if (isTaken) {
+                    setFieldState(usernameInput, errors.username, statusIcons.username, false, 'This username is already taken.');
+                    return false;
+                }
+
+                setFieldState(usernameInput, errors.username, statusIcons.username, true);
+                return true;
+            }
+
+            function validateEmail() {
+                const val = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+                if (val.length === 0) {
+                    setFieldState(emailInput, errors.email, statusIcons.email, false, 'Email address is required.');
+                    return false;
+                }
+                if (!emailRegex.test(val)) {
+                    setFieldState(emailInput, errors.email, statusIcons.email, false, 'Please enter a valid email address.');
+                    return false;
+                }
+                // Check duplicate email
+                const existingUsers = getStoredUsers();
+                const isRegistered = existingUsers.some(u => u.email.toLowerCase() === val.toLowerCase());
+                if (isRegistered) {
+                    setFieldState(emailInput, errors.email, statusIcons.email, false, 'An account with this email already exists.');
+                    return false;
+                }
+
+                setFieldState(emailInput, errors.email, statusIcons.email, true);
+                return true;
+            }
+
+            function updateChecklistItem(element, passed) {
+                const badge = element.querySelector('span:first-child');
+                if (passed) {
+                    element.classList.remove('text-slate-500');
+                    element.classList.add('text-emerald-600', 'font-medium');
+                    badge.classList.remove('bg-slate-100');
+                    badge.classList.add('bg-emerald-100', 'text-emerald-700');
+                    badge.textContent = '✓';
+                } else {
+                    element.classList.remove('text-emerald-600', 'font-medium');
+                    element.classList.add('text-slate-500');
+                    badge.classList.remove('bg-emerald-100', 'text-emerald-700');
+                    badge.classList.add('bg-slate-100');
+                    badge.textContent = '•';
+                }
+            }
+
+            function validatePassword() {
+                const val = passwordInput.value;
+                const checks = {
+                    length: val.length >= 8,
+                    upper: /[A-Z]/.test(val),
+                    number: /[0-9]/.test(val),
+                    special: /[^A-Za-z0-9]/.test(val)
+                };
+
+                // Update checklist UI
+                updateChecklistItem(reqElements.length, checks.length);
+                updateChecklistItem(reqElements.upper, checks.upper);
+                updateChecklistItem(reqElements.number, checks.number);
+                updateChecklistItem(reqElements.special, checks.special);
+
+                const passedCount = Object.values(checks).filter(Boolean).length;
+
+                // Reset strength bars
+                strengthBars.forEach(bar => {
+                    bar.className = 'h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300';
+                });
+
+                if (val.length === 0) {
+                    strengthLabel.textContent = 'Not entered';
+                    strengthLabel.className = 'text-xs font-semibold text-slate-400 transition-colors duration-200';
+                    setFieldState(passwordInput, errors.password, null, false, 'Password is required.');
+                    return false;
+                }
+
+                if (passedCount <= 2) {
+                    strengthLabel.textContent = 'Weak';
+                    strengthLabel.className = 'text-xs font-semibold text-rose-600 transition-colors duration-200';
+                    strengthBars[0].classList.replace('bg-slate-200', 'bg-rose-500');
+                } else if (passedCount === 3) {
+                    strengthLabel.textContent = 'Medium';
+                    strengthLabel.className = 'text-xs font-semibold text-amber-500 transition-colors duration-200';
+                    strengthBars[0].classList.replace('bg-slate-200', 'bg-amber-400');
+                    strengthBars[1].classList.replace('bg-slate-200', 'bg-amber-400');
+                } else if (passedCount === 4) {
+                    strengthLabel.textContent = 'Strong';
+                    strengthLabel.className = 'text-xs font-semibold text-emerald-600 transition-colors duration-200';
+                    strengthBars.forEach(bar => bar.classList.replace('bg-slate-200', 'bg-emerald-500'));
+                }
+
+                // Re-validate confirm password if user already typed in it
+                if (confirmPasswordInput.value.length > 0) {
+                    validateConfirmPassword();
+                }
+
+                if (passedCount < 4) {
+                    setFieldState(passwordInput, errors.password, null, false, 'Please meet all password strength requirements above.');
+                    return false;
+                }
+
+                setFieldState(passwordInput, errors.password, null, true);
+                return true;
+            }
+
+            function validateConfirmPassword() {
+                const passVal = passwordInput.value;
+                const confirmVal = confirmPasswordInput.value;
+
+                if (confirmVal.length === 0) {
+                    setFieldState(confirmPasswordInput, errors.confirmPassword, statusIcons.confirmPassword, false, 'Please confirm your password.');
+                    return false;
+                }
+                if (confirmVal !== passVal) {
+                    setFieldState(confirmPasswordInput, errors.confirmPassword, statusIcons.confirmPassword, false, 'Passwords do not match.');
+                    return false;
+                }
+
+                setFieldState(confirmPasswordInput, errors.confirmPassword, statusIcons.confirmPassword, true);
+                return true;
+            }
+
+            function validateTerms() {
+                if (!termsCheckbox.checked) {
+                    errors.terms.textContent = 'You must agree to the Terms of Service and Privacy Policy.';
+                    errors.terms.classList.remove('hidden');
+                    return false;
+                }
+                errors.terms.textContent = '';
+                errors.terms.classList.add('hidden');
+                return true;
+            }
+
+            // --- Real-Time Event Listeners ---
+            fullNameInput.addEventListener('input', validateFullName);
+            usernameInput.addEventListener('input', validateUsername);
+            emailInput.addEventListener('input', validateEmail);
+            passwordInput.addEventListener('input', validatePassword);
+            confirmPasswordInput.addEventListener('input', validateConfirmPassword);
+            termsCheckbox.addEventListener('change', validateTerms);
+
+            // Show / Hide Password Toggle
+            togglePasswordBtn.addEventListener('click', () => {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                confirmPasswordInput.type = isPassword ? 'text' : 'password';
+                eyeOpenIcon.classList.toggle('hidden', isPassword);
+                eyeClosedIcon.classList.toggle('hidden', !isPassword);
+            });
+
+            // --- View Switching Helpers ---
+            function showView(viewName) {
+                registrationSection.classList.add('hidden');
+                successSection.classList.add('hidden');
+                directorySection.classList.add('hidden');
+
+                if (viewName === 'form') {
+                    registrationSection.classList.remove('hidden');
+                    toggleUsersLabel.textContent = 'Registered Users';
+                } else if (viewName === 'success') {
+                    successSection.classList.remove('hidden');
+                    toggleUsersLabel.textContent = 'Registered Users';
+                } else if (viewName === 'directory') {
+                    renderUsersDirectory();
+                    directorySection.classList.remove('hidden');
+                    toggleUsersLabel.textContent = 'Back to Form';
+                }
+            }
+
+            // --- Render Simulated Registered Users List ---
+            function renderUsersDirectory() {
+                const users = getStoredUsers();
+                usersListContainer.innerHTML = '';
+
+                if (users.length === 0) {
+                    usersListContainer.innerHTML = `
+                        <div class="text-center py-10 px-4 border-2 border-dashed border-slate-200 rounded-2xl">
+                            <p class="text-sm font-medium text-slate-600">No registered users yet</p>
+                            <p class="text-xs text-slate-400 mt-1">Complete the registration form to add users to this directory.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                users.forEach(user => {
+                    const initials = user.fullName
+                        .split(' ')
+                        .map(n => n[0])
+                        .slice(0, 2)
+                        .join('')
+                        .toUpperCase();
+
+                    const card = document.createElement('div');
+                    card.className = 'flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-indigo-200 transition-colors';
+                    card.innerHTML = `
+                        <div class="flex items-center space-x-3.5 min-w-0">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-sm flex items-center justify-center shrink-0">
+                                ${initials}
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-sm font-semibold text-slate-900 truncate">${escapeHtml(user.fullName)}</p>
+                                <p class="text-xs text-slate-500 truncate">@${escapeHtml(user.username)} &bull; ${escapeHtml(user.email)}</p>
+                            </div>
+                        </div>
+                        <span class="text-[11px] font-medium text-slate-400 shrink-0 ml-2">${escapeHtml(user.registeredAt)}</span>
+                    `;
+                    usersListContainer.appendChild(card);
+                });
+            }
+
+            // Basic XSS protection when rendering user strings
+            function escapeHtml(str) {
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
+            // --- Form Submission Handler ---
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Run all validations
+                const isNameValid = validateFullName();
+                const isUserValid = validateUsername();
+                const isEmailValid = validateEmail();
+                const isPassValid = validatePassword();
+                const isConfirmValid = validateConfirmPassword();
+                const isTermsValid = validateTerms();
+
+                if (!isNameValid || !isUserValid || !isEmailValid || !isPassValid || !isConfirmValid || !isTermsValid) {
+                    // Focus the first invalid field for accessibility
+                    const firstInvalid = form.querySelector('.border-rose-500');
+                    if (firstInvalid) firstInvalid.focus();
+                    return;
+                }
+
+                // Simulate network request with loading spinner
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
+                submitBtnText.textContent = 'Creating Account...';
+                submitSpinner.classList.remove('hidden');
+
+                setTimeout(() => {
+                    const now = new Date();
+                    const formattedDate = now.toLocaleDateString('en-US', {
+                        month: 'short', day: 'numeric', year: 'numeric',
+                        hour: '2-digit', minute: '2-digit'
+                    });
+
+                    const newUser = {
+                        fullName: fullNameInput.value.trim(),
+                        username: usernameInput.value.trim(),
+                        email: emailInput.value.trim(),
+                        maskedPassword: '•'.repeat(passwordInput.value.length),
+                        registeredAt: formattedDate
+                    };
+
+                    // Persist to localStorage
+                    saveUserToStorage(newUser);
+
+                    // Populate Success Screen
+                    document.getElementById('summaryFullName').textContent = newUser.fullName;
+                    document.getElementById('summaryUsername').textContent = `@${newUser.username}`;
+                    document.getElementById('summaryEmail').textContent = newUser.email;
+                    document.getElementById('summaryPassword').textContent = newUser.maskedPassword;
+                    document.getElementById('summaryDate').textContent = newUser.registeredAt;
+
+                    // Reset Button State
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+                    submitBtnText.textContent = 'Create Account';
+                    submitSpinner.classList.add('hidden');
+
+                    // Switch to Success View
+                    showView('success');
+                }, 900);
+            });
+
+            // --- Reset Form & Register Another ---
+            function resetRegistrationForm() {
+                form.reset();
+                resetFieldState(fullNameInput, errors.fullName, statusIcons.fullName);
+                resetFieldState(usernameInput, errors.username, statusIcons.username);
+                resetFieldState(emailInput, errors.email, statusIcons.email);
+                resetFieldState(passwordInput, errors.password, null);
+                resetFieldState(confirmPasswordInput, errors.confirmPassword, statusIcons.confirmPassword);
+                errors.terms.classList.add('hidden');
+
+                // Reset password visibility & strength meter
+                passwordInput.type = 'password';
+                confirmPasswordInput.type = 'password';
+                eyeOpenIcon.classList.remove('hidden');
+                eyeClosedIcon.classList.add('hidden');
+                strengthLabel.textContent = 'Not entered';
+                strengthLabel.className = 'text-xs font-semibold text-slate-400';
+                strengthBars.forEach(bar => {
+                    bar.className = 'h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300';
+                });
+                Object.values(reqElements).forEach(el => updateChecklistItem(el, false));
+
+                showView('form');
+            }
+
+            registerAnotherBtn.addEventListener('click', resetRegistrationForm);
+            backToFormBtn.addEventListener('click', resetRegistrationForm);
+
+            // Toggle Directory View from Header
+            toggleUsersBtn.addEventListener('click', () => {
+                if (directorySection.classList.contains('hidden')) {
+                    showView('directory');
+                } else {
+                    showView('form');
+                }
+            });
+
+            viewDirectoryFromSuccessBtn.addEventListener('click', () => {
+                showView('directory');
+            });
+
+            // Clear LocalStorage Users
+            clearUsersBtn.addEventListener('click', () => {
+                localStorage.removeItem(STORAGE_KEY);
+                updateUserCountBadge();
+                renderUsersDirectory();
+            });
+
+            // --- Policy Modal Logic ---
+            function openModal(title, content) {
+                modalTitle.textContent = title;
+                modalBody.textContent = content;
+                infoModal.classList.remove('hidden');
+            }
+
+            function closeModal() {
+                infoModal.classList.add('hidden');
+            }
+
+            openTermsBtn.addEventListener('click', () => {
+                openModal(
+                    'Terms of Service',
+                    'By creating a NexusID account, you agree to provide accurate registration information and maintain the confidentiality of your credentials. This demonstration stores profile metadata locally within your browser storage.'
+                );
+            });
+
+            openPrivacyBtn.addEventListener('click', () => {
+                openModal(
+                    'Privacy Policy',
+                    'Your privacy matters. No data entered in this registration form is transmitted to external servers. All account records remain strictly inside your browser’s localStorage and can be cleared at any time.'
+                );
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modalConfirmBtn.addEventListener('click', closeModal);
+            infoModal.addEventListener('click', (e) => {
+                if (e.target === infoModal) closeModal();
+            });
+
+            // Initialize user badge count on load
+            updateUserCountBadge();
+        });
+    </script>
 </body>
 </html>
