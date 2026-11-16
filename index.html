@@ -636,8 +636,6 @@
                 eyeOpenIcon.classList.toggle('hidden', isPassword);
                 eyeClosedIcon.classList.toggle('hidden', !isPassword);
             });
-
-            // --- View Switching Helpers ---
             function showView(viewName) {
                 registrationSection.classList.add('hidden');
                 successSection.classList.add('hidden');
@@ -656,7 +654,7 @@
                 }
             }
 
-            // --- Render Simulated Registered Users List ---
+          g
             function renderUsersDirectory() {
                 const users = getStoredUsers();
                 usersListContainer.innerHTML = '';
