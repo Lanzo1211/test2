@@ -24,10 +24,8 @@
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-indigo-100 selection:text-indigo-800">
 
-    <!-- Top Navigation Bar -->
     <header class="w-full bg-white/80 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-30">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <!-- Brand Logo -->
             <div class="flex items-center space-x-2.5">
                 <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-sm shadow-indigo-200">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
@@ -37,7 +35,6 @@
                 <span class="font-bold text-lg tracking-tight text-slate-900">Nexus<span class="text-indigo-600">ID</span></span>
             </div>
 
-            <!-- Directory Toggle Button -->
             <button id="toggleUsersBtn" type="button" class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200/80 active:scale-[0.98] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500/40">
                 <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -48,11 +45,9 @@
         </div>
     </header>
 
-    <!-- Main Content Container -->
     <main class="flex-grow flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
         <div class="w-full max-w-lg">
 
-            <!-- VIEW 1: Registration Form Card -->
             <section id="registrationSection" class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 sm:p-10 transition-all duration-300">
                 <div class="mb-8 text-center sm:text-left">
                     <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">Create an account</h1>
@@ -61,44 +56,37 @@
 
                 <form id="registrationForm" novalidate class="space-y-5">
                     
-                    <!-- Full Name Field -->
                     <div>
                         <label for="fullName" class="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
                         <div class="relative">
                             <input type="text" id="fullName" name="fullName" placeholder="e.g. Elena Rostova" autocomplete="name"
                                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150 pr-10">
-                            <!-- Status Icon -->
                             <div id="fullNameStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
                         </div>
                         <p id="fullNameError" class="hidden mt-1.5 text-xs font-medium text-rose-600 flex items-center gap-1"></p>
                     </div>
 
-                    <!-- Username Field -->
                     <div>
                         <label for="username" class="block text-sm font-medium text-slate-700 mb-1.5">Username</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm select-none">@</span>
                             <input type="text" id="username" name="username" placeholder="elena_dev" autocomplete="username"
                                 class="w-full pl-8 pr-10 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150">
-                            <!-- Status Icon -->
                             <div id="usernameStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
                         </div>
                         <p id="usernameError" class="hidden mt-1.5 text-xs font-medium text-rose-600 flex items-center gap-1"></p>
                     </div>
 
-                    <!-- Email Address Field -->
                     <div>
                         <label for="email" class="block text-sm font-medium text-slate-700 mb-1.5">Email Address</label>
                         <div class="relative">
                             <input type="email" id="email" name="email" placeholder="elena@example.com" autocomplete="email"
                                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150 pr-10">
-                            <!-- Status Icon -->
                             <div id="emailStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
                         </div>
                         <p id="emailError" class="hidden mt-1.5 text-xs font-medium text-rose-600 flex items-center gap-1"></p>
                     </div>
 
-                    <!-- Password Field -->
                     <div>
                         <div class="flex items-center justify-between mb-1.5">
                             <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
@@ -122,14 +110,12 @@
                             </button>
                         </div>
 
-                     
                         <div class="mt-2.5 w-full h-1.5 bg-slate-100 rounded-full overflow-hidden flex gap-1">
                             <div id="strengthBar1" class="h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300"></div>
                             <div id="strengthBar2" class="h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300"></div>
                             <div id="strengthBar3" class="h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300"></div>
                         </div>
 
-                        <!-- Password Requirement Checklist -->
                         <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-500">
                             <li id="reqLength" class="flex items-center space-x-1.5 transition-colors duration-200">
                                 <span class="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">•</span>
@@ -156,13 +142,11 @@
                         <div class="relative">
                             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password"
                                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50/50 text-slate-900 placeholder-slate-400 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-150 pr-10">
-                            <!-- Status Icon -->
                             <div id="confirmPasswordStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none"></div>
                         </div>
                         <p id="confirmPasswordError" class="hidden mt-1.5 text-xs font-medium text-rose-600"></p>
                     </div>
 
-                    <!-- Terms & Conditions Checkbox -->
                     <div class="pt-1">
                         <label class="flex items-start space-x-3 cursor-pointer select-none group">
                             <input type="checkbox" id="termsCheckbox" name="terms"
@@ -174,12 +158,10 @@
                         <p id="termsError" class="hidden mt-1.5 text-xs font-medium text-rose-600"></p>
                     </div>
 
-                    <!-- Submit Button -->
                     <div class="pt-2">
                         <button type="submit" id="submitBtn"
                             class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold text-sm shadow-md shadow-indigo-600/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 transition-all duration-150 flex items-center justify-center space-x-2">
                             <span id="submitBtnText">Create Account</span>
-                            <!-- Loading Spinner (Hidden by default) -->
                             <svg id="submitSpinner" class="hidden animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -189,9 +171,7 @@
                 </form>
             </section>
 
-            <!-- VIEW 2: Success Confirmation Card (Hidden initially) -->
             <section id="successSection" class="hidden bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80 p-6 sm:p-10 text-center transition-all duration-300">
-                <!-- Animated Checkmark Badge -->
                 <div class="mx-auto w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center mb-6 shadow-sm">
                     <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
@@ -201,7 +181,6 @@
                 <h2 class="text-2xl font-bold text-slate-900">Registration Successful!</h2>
                 <p class="mt-2 text-sm text-slate-500 max-w-sm mx-auto">Your NexusID account has been provisioned and stored locally in your browser directory.</p>
 
-                <!-- Registered Details Summary Box -->
                 <div class="mt-7 bg-slate-50 rounded-2xl border border-slate-200/80 p-5 text-left space-y-3.5">
                     <div class="flex justify-between items-center border-b border-slate-200/70 pb-2.5">
                         <span class="text-xs font-medium uppercase tracking-wider text-slate-400">Full Name</span>
@@ -225,7 +204,6 @@
                     </div>
                 </div>
 
-                <!-- Action Buttons -->
                 <div class="mt-8 flex flex-col sm:flex-row gap-3">
                     <button type="button" id="registerAnotherBtn"
                         class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-sm transition-all duration-150">
@@ -264,7 +242,6 @@
         </div>
     </main>
 
-   
     <div id="infoModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
             <div class="flex items-center justify-between mb-3">
@@ -284,20 +261,12 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="py-6 text-center text-xs text-slate-400">
         <p>NexusID Registration Demo &bull; Client-Side Validation &amp; LocalStorage Persistence</p>
     </footer>
 
-    <!-- Application Logic -->
     <script>
-        /**
-         * NexusID Registration Application
-         * Handles real-time validation, password strength analysis, UI state transitions,
-         * and localStorage persistence.
-         */
         document.addEventListener('DOMContentLoaded', () => {
-            // --- DOM Elements ---
             const form = document.getElementById('registrationForm');
             const fullNameInput = document.getElementById('fullName');
             const usernameInput = document.getElementById('username');
@@ -306,7 +275,6 @@
             const confirmPasswordInput = document.getElementById('confirmPassword');
             const termsCheckbox = document.getElementById('termsCheckbox');
 
-            // Error & Status Elements
             const errors = {
                 fullName: document.getElementById('fullNameError'),
                 username: document.getElementById('usernameError'),
@@ -323,7 +291,6 @@
                 confirmPassword: document.getElementById('confirmPasswordStatusIcon')
             };
 
-            // Password Strength Elements
             const togglePasswordBtn = document.getElementById('togglePasswordBtn');
             const eyeOpenIcon = document.getElementById('eyeOpenIcon');
             const eyeClosedIcon = document.getElementById('eyeClosedIcon');
@@ -340,7 +307,6 @@
                 special: document.getElementById('reqSpecial')
             };
 
-            // Buttons & Sections
             const submitBtn = document.getElementById('submitBtn');
             const submitBtnText = document.getElementById('submitBtnText');
             const submitSpinner = document.getElementById('submitSpinner');
@@ -358,7 +324,6 @@
             const clearUsersBtn = document.getElementById('clearUsersBtn');
             const backToFormBtn = document.getElementById('backToFormBtn');
 
-            // Modal Elements
             const infoModal = document.getElementById('infoModal');
             const modalTitle = document.getElementById('modalTitle');
             const modalBody = document.getElementById('modalBody');
@@ -367,14 +332,11 @@
             const openTermsBtn = document.getElementById('openTermsBtn');
             const openPrivacyBtn = document.getElementById('openPrivacyBtn');
 
-            // Storage Key
             const STORAGE_KEY = 'nexusid_registered_users';
 
-            // SVG Icons for Valid/Invalid Input States
             const validSvg = `<svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
             const invalidSvg = `<svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
 
-            // --- LocalStorage Helpers ---
             function getStoredUsers() {
                 try {
                     const data = localStorage.getItem(STORAGE_KEY);
@@ -388,7 +350,7 @@
             function saveUserToStorage(userObj) {
                 try {
                     const users = getStoredUsers();
-                    users.unshift(userObj); // Add newest first
+                    users.unshift(userObj);
                     localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
                     updateUserCountBadge();
                 } catch (e) {
@@ -401,9 +363,7 @@
                 userCountBadge.textContent = count;
             }
 
-            // --- UI State Helper for Input Fields ---
             function setFieldState(inputEl, errorEl, iconEl, isValid, errorMessage = '') {
-                // Reset border classes
                 inputEl.classList.remove(
                     'border-slate-300', 'focus:border-indigo-500', 'focus:ring-indigo-500/20',
                     'border-rose-500', 'focus:border-rose-500', 'focus:ring-rose-500/20',
@@ -448,7 +408,6 @@
                 }
             }
 
-            // --- Individual Field Validators ---
             function validateFullName() {
                 const val = fullNameInput.value.trim();
                 if (val.length === 0) {
@@ -481,7 +440,6 @@
                     setFieldState(usernameInput, errors.username, statusIcons.username, false, 'Only letters, numbers, and underscores allowed.');
                     return false;
                 }
-                // Check if username already exists in localStorage
                 const existingUsers = getStoredUsers();
                 const isTaken = existingUsers.some(u => u.username.toLowerCase() === val.toLowerCase());
                 if (isTaken) {
@@ -504,7 +462,6 @@
                     setFieldState(emailInput, errors.email, statusIcons.email, false, 'Please enter a valid email address.');
                     return false;
                 }
-                // Check duplicate email
                 const existingUsers = getStoredUsers();
                 const isRegistered = existingUsers.some(u => u.email.toLowerCase() === val.toLowerCase());
                 if (isRegistered) {
@@ -542,7 +499,6 @@
                     special: /[^A-Za-z0-9]/.test(val)
                 };
 
-                // Update checklist UI
                 updateChecklistItem(reqElements.length, checks.length);
                 updateChecklistItem(reqElements.upper, checks.upper);
                 updateChecklistItem(reqElements.number, checks.number);
@@ -550,7 +506,6 @@
 
                 const passedCount = Object.values(checks).filter(Boolean).length;
 
-                // Reset strength bars
                 strengthBars.forEach(bar => {
                     bar.className = 'h-full w-1/3 bg-slate-200 rounded-full transition-all duration-300';
                 });
@@ -577,7 +532,6 @@
                     strengthBars.forEach(bar => bar.classList.replace('bg-slate-200', 'bg-emerald-500'));
                 }
 
-                // Re-validate confirm password if user already typed in it
                 if (confirmPasswordInput.value.length > 0) {
                     validateConfirmPassword();
                 }
@@ -619,7 +573,6 @@
                 return true;
             }
 
-            // --- Real-Time Event Listeners ---
             fullNameInput.addEventListener('input', validateFullName);
             usernameInput.addEventListener('input', validateUsername);
             emailInput.addEventListener('input', validateEmail);
@@ -627,7 +580,6 @@
             confirmPasswordInput.addEventListener('input', validateConfirmPassword);
             termsCheckbox.addEventListener('change', validateTerms);
 
-            // Show / Hide Password Toggle
             togglePasswordBtn.addEventListener('click', () => {
                 const isPassword = passwordInput.type === 'password';
                 passwordInput.type = isPassword ? 'text' : 'password';
@@ -635,6 +587,7 @@
                 eyeOpenIcon.classList.toggle('hidden', isPassword);
                 eyeClosedIcon.classList.toggle('hidden', !isPassword);
             });
+
             function showView(viewName) {
                 registrationSection.classList.add('hidden');
                 successSection.classList.add('hidden');
@@ -653,7 +606,6 @@
                 }
             }
 
-          g
             function renderUsersDirectory() {
                 const users = getStoredUsers();
                 usersListContainer.innerHTML = '';
@@ -694,18 +646,15 @@
                 });
             }
 
-            // Basic XSS protection when rendering user strings
             function escapeHtml(str) {
                 const div = document.createElement('div');
                 div.textContent = str;
                 return div.innerHTML;
             }
 
-            // --- Form Submission Handler ---
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                // Run all validations
                 const isNameValid = validateFullName();
                 const isUserValid = validateUsername();
                 const isEmailValid = validateEmail();
@@ -714,13 +663,11 @@
                 const isTermsValid = validateTerms();
 
                 if (!isNameValid || !isUserValid || !isEmailValid || !isPassValid || !isConfirmValid || !isTermsValid) {
-                    // Focus the first invalid field for accessibility
                     const firstInvalid = form.querySelector('.border-rose-500');
                     if (firstInvalid) firstInvalid.focus();
                     return;
                 }
 
-                // Simulate network request with loading spinner
                 submitBtn.disabled = true;
                 submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
                 submitBtnText.textContent = 'Creating Account...';
@@ -741,28 +688,23 @@
                         registeredAt: formattedDate
                     };
 
-                    // Persist to localStorage
                     saveUserToStorage(newUser);
 
-                    // Populate Success Screen
                     document.getElementById('summaryFullName').textContent = newUser.fullName;
                     document.getElementById('summaryUsername').textContent = `@${newUser.username}`;
                     document.getElementById('summaryEmail').textContent = newUser.email;
                     document.getElementById('summaryPassword').textContent = newUser.maskedPassword;
                     document.getElementById('summaryDate').textContent = newUser.registeredAt;
 
-                    // Reset Button State
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
                     submitBtnText.textContent = 'Create Account';
                     submitSpinner.classList.add('hidden');
 
-                    // Switch to Success View
                     showView('success');
                 }, 900);
             });
 
-            // --- Reset Form & Register Another ---
             function resetRegistrationForm() {
                 form.reset();
                 resetFieldState(fullNameInput, errors.fullName, statusIcons.fullName);
@@ -772,7 +714,6 @@
                 resetFieldState(confirmPasswordInput, errors.confirmPassword, statusIcons.confirmPassword);
                 errors.terms.classList.add('hidden');
 
-                // Reset password visibility & strength meter
                 passwordInput.type = 'password';
                 confirmPasswordInput.type = 'password';
                 eyeOpenIcon.classList.remove('hidden');
@@ -790,7 +731,6 @@
             registerAnotherBtn.addEventListener('click', resetRegistrationForm);
             backToFormBtn.addEventListener('click', resetRegistrationForm);
 
-            // Toggle Directory View from Header
             toggleUsersBtn.addEventListener('click', () => {
                 if (directorySection.classList.contains('hidden')) {
                     showView('directory');
@@ -803,14 +743,12 @@
                 showView('directory');
             });
 
-            // Clear LocalStorage Users
             clearUsersBtn.addEventListener('click', () => {
                 localStorage.removeItem(STORAGE_KEY);
                 updateUserCountBadge();
                 renderUsersDirectory();
             });
 
-            // --- Policy Modal Logic ---
             function openModal(title, content) {
                 modalTitle.textContent = title;
                 modalBody.textContent = content;
@@ -841,7 +779,6 @@
                 if (e.target === infoModal) closeModal();
             });
 
-            // Initialize user badge count on load
             updateUserCountBadge();
         });
     </script>
